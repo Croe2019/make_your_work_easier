@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 // 一番最初に表示される画面のルート
 Route::get('/', [HomeController::class, 'Home'])->name('home.home');
+// ログイン後遷移する画面
+Route::get('/chat', [ChatController::class, 'GeneralReport'])->name('Chat.chat');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
