@@ -9,7 +9,7 @@ class ChatController extends Controller
 {
     public function GeneralReport()
     {
-        $notices = Notice::all();
+        $notices = Notice::latest('created_at')->get();
         return view('Chat.chat')->with('notices', $notices);
     }
 }

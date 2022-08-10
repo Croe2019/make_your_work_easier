@@ -15,7 +15,7 @@
             <a class="nav-link active" aria-current="page" href="#">ホーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">お知らせ投稿</a>
+            <a class="nav-link" href="{{ route('NoticeCreate.createview') }}">お知らせ投稿</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">マイページ</a>
