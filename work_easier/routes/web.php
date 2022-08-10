@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\NoticeCreateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'Home'])->name('home.home');
 // ログイン後遷移する画面
 Route::get('/chat', [ChatController::class, 'GeneralReport'])->name('Chat.chat');
+// お知らせ作成画面
+Route::get('/noticecreate', [NoticeCreateController::class, 'NoticeCreateView'])->name('NoticeCreate.createview');
+Route::post('/notice/create', [NoticeCreateController::class, 'NoticeStore'])->name('store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

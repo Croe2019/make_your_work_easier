@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('notices', function (Blueprint $table) {
-            $table->id();
-            $table->string('content'); // 文章カラム
-            $table->string('image_path'); // 画像のパス
-            $table->foreignId('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
+        Schema::table('notices', function (Blueprint $table) {
+            $table->string('image_path')->nullable(true)->change(); // 画像のパスの値にnullを許容する
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notices');
+        Schema::table('notices', function (Blueprint $table) {
+            $table->string('image_path')->nullable(false)->change();
+        });
     }
 };
