@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Http\Requests\UserSetting\UserSettingRequest;
+use App\Models\UserSetting;
 
 class RegisteredUserController extends Controller
 {
@@ -43,6 +45,16 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        // 新規登録すると同時にユーザー設定情報を設定
+        UserSetting::create([
+            'user_name' => $user->name,
+            'user_profile_image' => null, // ここはサンプル画像を入れる
+            'user_status' => '1',
+            'user_id' => $user->id,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         event(new Registered($user));

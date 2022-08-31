@@ -39,9 +39,9 @@ Route::middleware('auth')->group(function () {
     // お知らせ作成画面
     Route::get('/noticecreate', [NoticeCreateController::class, 'NoticeCreateView'])->name('NoticeCreate.createview');
     Route::post('/notice/create', [NoticeCreateController::class, 'NoticeStore'])->name('store');
+    // マイページ
     Route::get('/mypage/{user_id}', [MyPageController::class, 'UserMyPageView'])->name('MyPage.mypage');
-    Route::get('/usersetting/{user_id}', [UserSettingController::class, 'UserSettingView'])->name('UserSetting.usersetting');
-    Route::post('/usersetting/{user_id}/store', [UserSettingController::class, 'UserStatusDataStore'])->name('userstatus.store');
+    // ユーザー情報編集画面
     Route::get('/usersettingedit/{user_id}', [UserSettingEditController::class, 'EditView'])->name('UserSettingEdit.edit');
     Route::post('/usersettingedit/{user_id}', [UserSettingEditController::class, 'Update'])->name('update');
 
