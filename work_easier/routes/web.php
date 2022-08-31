@@ -8,6 +8,8 @@ use App\Http\Controllers\UserSettingController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\UserSettingEditController;
 use App\Http\Controllers\UserSetting\Edit\EditController;
+use App\Http\Controllers\Notice\Update\IndexController;
+use App\Http\Controllers\Notice\Update\PutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/usersetting/{user_id}/store', [UserSettingController::class, 'UserStatusDataStore'])->name('userstatus.store');
     Route::get('/usersettingedit/{user_id}', [UserSettingEditController::class, 'EditView'])->name('UserSettingEdit.edit');
     Route::post('/usersettingedit/{user_id}', [UserSettingEditController::class, 'Update'])->name('update');
+
+    // お知らせ更新処理画面
+    Route::get('/notice/update/{notice_id}', [IndexController::class, 'Index'])->name('NoticeUpdate.update');
+    Route::post('/notice/update/{notice_id}', [PutController::class, 'Update'])->name('Notice.Update');
 });
 
 

@@ -11,9 +11,14 @@
         <hr>
         <div class="mt-5">
             @foreach($notices as $notice)
-                <p>{{ $notice->content }}</p>
-                <p><img src="{{ Storage::url($notice->image_path) }}" width="25%"></p>
-                <hr>
+                <details>
+                    <summary>{{ $notice->content }}</summary>
+                    <p><img src="{{ Storage::url($notice->image_path) }}" width="25%"></p>
+                    <div>
+                        <a href="{{ route('NoticeUpdate.update', ['notice_id' => $notice->id]) }}">編集</a>
+                    </div>
+                    <hr>
+                </details>
             @endforeach
         </div>
     </body>
