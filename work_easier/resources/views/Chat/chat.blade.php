@@ -16,6 +16,11 @@
                     <p><img src="{{ Storage::url($notice->image_path) }}" width="25%"></p>
                     <div>
                         <a href="{{ route('NoticeUpdate.update', ['notice_id' => $notice->id]) }}">編集</a>
+                        <form action="{{ route('Notice.delete', ['notice_id' => $notice->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit">削除</button>
+                        </form>
                     </div>
                     <hr>
                 </details>
