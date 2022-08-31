@@ -25,7 +25,6 @@ class UserSettingEditController extends Controller
         // ログインしているユーザーのidを取得
         // ここはリファクタリングでモデルクラスに処理を移してControllerでは呼び出すだけにする
         $user_id  = Auth::id();
-
         $user_name = $request->input('user_name');
         $user_status_number = $request->input('user_status');
         $user_image = $request->file('user_profile_image');

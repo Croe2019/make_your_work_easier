@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Notice\CreateRequest;
 use App\Models\Notice;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class NoticeCreateController extends Controller
 {
@@ -21,6 +22,7 @@ class NoticeCreateController extends Controller
         // 入力された文章を取得
         $content = $request->input('content');
         $image = $request->file('image_path');
+        $date = Carbon::now();
         // 文章と画像の両方を保存
         if(isset($image)){
             $path = $image->store('images', 'public');
@@ -30,8 +32,8 @@ class NoticeCreateController extends Controller
                     'content' => $content,
                     'image_path' => $path,
                     'user_id' => $user_id,
-                    'created_at' => now(),
-                    'updated_at' => now()
+                    'created_at' => $date,
+                    'updated_at' => $date
                 ]);
             }
         }else{
@@ -41,8 +43,8 @@ class NoticeCreateController extends Controller
                 'content' => $content,
                 'image_path' => null,
                 'user_id' => $user_id,
-                'created_at' => now(),
-                'updated_at' => now()
+                'created_at' => $date,
+                'updated_at' => $date
             ]);
         }
         return redirect()->route('Chat.chat');
