@@ -10,6 +10,7 @@ use App\Http\Controllers\UserSettingEditController;
 use App\Http\Controllers\UserSetting\Edit\EditController;
 use App\Http\Controllers\Notice\Update\IndexController;
 use App\Http\Controllers\Notice\Update\PutController;
+use App\Http\Controllers\Notice\DeleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::middleware('auth')->group(function () {
     // お知らせ更新処理画面
     Route::get('/notice/update/{notice_id}', [IndexController::class, 'Index'])->name('NoticeUpdate.update');
     Route::post('/notice/update/{notice_id}', [PutController::class, 'Update'])->name('Notice.Update');
+    // 削除処理ルーティング
+    Route::delete('/notice/delete/{notice_id}', [DeleteController::class, 'Delete'])->name('Notice.delete');
 });
 
 
