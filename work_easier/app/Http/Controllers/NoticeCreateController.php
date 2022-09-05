@@ -7,6 +7,7 @@ use App\Http\Requests\Notice\CreateRequest;
 use App\Models\Notice;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Services\NoticeService;
 
 class NoticeCreateController extends Controller
 {
@@ -15,38 +16,25 @@ class NoticeCreateController extends Controller
         return view('NoticeCreate.createview');
     }
 
-    public function NoticeStore(CreateRequest $request)
+    public function NoticeStore(CreateRequest $request, NoticeService $notice_service)
     {
         // ログインしているユーザーIDを取得
-        $user_id = Auth::id();
-        // 入力された文章を取得
-        $content = $request->input('content');
-        $image = $request->file('image_path');
-        $date = Carbon::now();
-        // 文章と画像の両方を保存
-        if(isset($image)){
-            $path = $image->store('images', 'public');
-            if($path){
-                // DBに登録する処理
-                Notice::create([
-                    'content' => $content,
-                    'image_path' => $path,
-                    'user_id' => $user_id,
-                    'created_at' => $date,
-                    'updated_at' => $date
-                ]);
-            }
-        }else{
-            // 画像が選択されていない場合は文章のみを保存
-            // DBに登録する処理
-            Notice::create([
-                'content' => $content,
-                'image_path' => null,
-                'user_id' => $user_id,
-                'created_at' => $date,
-                'updated_at' => $date
-            ]);
-        }
+        // $user_id = Auth::id();
+        // // 入力された文章を取得
+        // $content = $request->input('content');
+        // $date = Carbon::now();
+        // Notice::create([
+        //     'content' => $content,
+        //     'user_id' => $user_id,
+        //     'created_at' => $date,
+        //     'updated_at' => $date
+        // ]);
+
+        $notice_service->saveNotice(
+            $request->UserID(),
+            $request->notice(),
+            $request->images()
+        );
         return redirect()->route('Chat.chat');
     }
 }

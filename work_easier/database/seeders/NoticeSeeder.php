@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\ImageFactory;
 use App\Models\Notice;
+use App\Models\Image;
 
 class NoticeSeeder extends Seeder
 {
@@ -19,6 +20,10 @@ class NoticeSeeder extends Seeder
      */
     public function run()
     {
-        Notice::factory()->count(10)->create();
+        Notice::factory()->count(10)->create()->each(fn($notice) => 
+            Image::factory()->count(4)->create()->each(fn($image) => 
+                $notice->images()->attach($image->id)
+            )
+        );
     }
 }

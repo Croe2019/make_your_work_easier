@@ -25,7 +25,8 @@ class CreateRequest extends FormRequest
     {
         return [
             'content' => 'required|max:2000',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,pdf|max:2048'
+            'images' => 'array|max:4',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 
@@ -44,5 +45,20 @@ class CreateRequest extends FormRequest
     public function store($path, $options = [])
     {
         return $this->storeAs($path, $this->hashName(), $this->parseOptions($options));
+    }
+
+    public function UserID(): int
+    {
+        return $this->user()->id;
+    }
+
+    public function notice(): string
+    {
+        return $this->input('content');
+    }
+
+    public function images() : array
+    {
+        return $this->file('images', []);
     }
 }
