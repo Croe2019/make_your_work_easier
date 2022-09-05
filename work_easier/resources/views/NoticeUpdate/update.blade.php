@@ -22,22 +22,6 @@
                     @error('content')
                     <p style="color: red;">{{ $message }}</p>
                     @enderror
-
-                    <p>
-                    <img id="preview" src="{{ Storage::url($notice->image_path) }}" style="max-width:200px;">
-                    </p>
-                    <label for="formFileMultiple" class="form-label">プロフィール画像を選択</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="image_path" multiple accept='image/*' onchange="previewImage(this);">
-                    <script>
-                        function previewImage(obj)
-                        {
-                            var fileReader = new FileReader();
-                            fileReader.onload = (function() {
-                                document.getElementById('preview').src = fileReader.result;
-                            });
-                            fileReader.readAsDataURL(obj.files[0]);
-                        }
-                    </script>
                     <button type="submit" class="btn btn-primary">編集</button>
                 </div>
             </form>

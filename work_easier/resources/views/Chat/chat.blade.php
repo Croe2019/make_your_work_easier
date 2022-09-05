@@ -12,8 +12,8 @@
         <div class="mt-5">
             @foreach($notices as $notice)
                 <details>
-                    <summary>{{ $notice->content }}</summary>
-                    <p><img src="{{ Storage::url($notice->image_path) }}" width="25%"></p>
+                    <summary>{{ $notice->content }} by {{ $notice->user->name }}</summary>
+                    <x-chat.images :images="$notice->images"></x-chat.images>
                     <div>
                         <a href="{{ route('NoticeUpdate.update', ['notice_id' => $notice->id]) }}">編集</a>
                         <form action="{{ route('Notice.delete', ['notice_id' => $notice->id]) }}" method="POST">
