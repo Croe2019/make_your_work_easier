@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Notice;
 
+use App\Models\Notice;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateRequest extends FormRequest
@@ -25,7 +26,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'content' => 'required|max:2000',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,pdf|max:2048'
+            'images' => 'array|max:4',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 
@@ -50,5 +52,20 @@ class UpdateRequest extends FormRequest
     public function store($path, $options = [])
     {
         return $this->storeAs($path, $this->hashName(), $this->parseOptions($options));
+    }
+
+    public function NoticeID($notice_id): int
+    {
+        return $notice_id;
+    }
+
+    public function notice(): string
+    {
+        return $this->input('content');
+    }
+
+    public function images() : array
+    {
+        return $this->file('images', []);
     }
 }

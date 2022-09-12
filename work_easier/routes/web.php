@@ -25,10 +25,6 @@ use App\Http\Controllers\MultImageSelectController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // ログイン前の画面
 Route::middleware('guest')->group(function () {
     Route::get('/', [HomeController::class, 'Home'])->name('home.home');
@@ -52,10 +48,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/notice/update/{notice_id}', [PutController::class, 'Update'])->name('Notice.Update');
     // 削除処理ルーティング
     Route::delete('/notice/delete/{notice_id}', [DeleteController::class, 'Delete'])->name('Notice.delete');
-
-    // サンプルで作成
-    Route::get('/sampleselectimage', [MultImageSelectController::class, 'MultImageSelectView'])->name('SampleImage.sampleimage');
-    Route::post('/sampleselectimage', [MultImageSelectController::class, 'MultImageStore'])->name('SampleImage.upload');
 });
 
 

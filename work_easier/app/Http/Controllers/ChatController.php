@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Notice;
 use App\Services\NoticeService;
+use App\Models\NoticeImage;
 
 class ChatController extends Controller
 {
@@ -12,6 +13,6 @@ class ChatController extends Controller
     {
         $notice_service = new NoticeService();
         $notices = $notice_service->getNotices();
-        return view('Chat.chat')->with('notices', $notices);
+        return view('Chat.chat', ['notices' => $notices]);
     }
 }
