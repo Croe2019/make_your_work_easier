@@ -17,6 +17,11 @@ class Notice extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
+
     public function images()
     {
         return $this->belongsToMany(Image::class, 'notice_images')->using(NoticeImage::class);

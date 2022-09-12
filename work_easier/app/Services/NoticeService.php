@@ -15,6 +15,8 @@ class NoticeService
         return Notice::with('images')->orderBy('created_at', 'DESC')->get();
     }
 
+    // TODO 画像のIDを取得するところから再開
+
     public function saveNotice(int $user_id, string $content, array $images)
     {
         DB::transaction(function () use ($user_id, $content, $images){

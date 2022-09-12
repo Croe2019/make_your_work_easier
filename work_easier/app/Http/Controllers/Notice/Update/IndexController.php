@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Notice\Update;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Notice;
+use App\Services\EditNoticeService;
 
 class IndexController extends Controller
 {
-    public function Index(Request $request)
+    public function Index($notice_id)
     {
-        $notice_id = (int) $request->route('notice_id');
-        $notice = Notice::where('id', $notice_id)->firstOrFail();
-        //dd($notice);
+        $edit_notice_service = new EditNoticeService();
+        $notice = $edit_notice_service->getEditNotice($notice_id);
         return view('NoticeUpdate.update', ['notice' => $notice]);
     }
 }

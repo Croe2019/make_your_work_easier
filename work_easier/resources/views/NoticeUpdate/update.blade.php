@@ -7,7 +7,6 @@
     </head>
     <body>
         <x-notice-update.menu></x-notice-update.menu>
-        <h1>お知らせを編集する</h1>
         <a href="{{ route('Chat.chat') }}">戻る</a>
         <p>投稿フォーム</p>
         @if(session('feedback.success'))
@@ -19,6 +18,8 @@
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">お知らせ作成欄</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3" placeholder="ここに入力">{{ $notice->content }}</textarea>
+                    <x-notice-update.image :images="$notice->images"></x-notice-update.image>
+                    <x-notice-update.imagefileselect></x-notice-update.imagefileselect>
                     @error('content')
                     <p style="color: red;">{{ $message }}</p>
                     @enderror
