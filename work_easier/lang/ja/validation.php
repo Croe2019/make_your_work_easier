@@ -131,9 +131,21 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'document_name' => [
+            'required' => '資料名を入力してください'
+        ],
+        'tags1' => [
+            'required' => 'タグは最低でも1つは必要です'
+        ],
+        'images' => [
+            'required' => '資料データは必須です'
+        ],
     ],
 
     'attributes' => [
-        'content' => 'お知らせ'
+        'content' => 'お知らせ',
+        'document_name' => '資料名',
+        'tags1' => 'タグ',
+        'images' => '資料データ'
     ],
 ];

@@ -12,7 +12,7 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+            <a class="nav-link active" aria-current="page" href="{{ route('Chat.chat') }}">ホーム</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('NoticeCreate.createview') }}">お知らせ投稿</a>
@@ -29,7 +29,6 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="{{ route('DocumentCreating.document_creating') }}">資料保存</a></li>
-              <li><a class="dropdown-item" href="{{ route('DocumentList.document_list') }}">資料一覧</a></li>
               <li><a class="dropdown-item" href="#">資料検索</a></li>
               <li>
                 <hr class="dropdown-divider">

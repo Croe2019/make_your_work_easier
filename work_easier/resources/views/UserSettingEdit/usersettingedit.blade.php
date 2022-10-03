@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <x-usersettingedit.share></x-usersettingedit.share>
+        <x-sharing.bootstrap></x-sharing.bootstrap>
     </head>
     <body>
         <h1>ユーザー設定編集</h1>

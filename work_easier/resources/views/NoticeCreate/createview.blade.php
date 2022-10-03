@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <x-noticecreate.share></x-noticecreate.share>
+        <x-sharing.bootstrap></x-sharing.bootstrap>
         <meta charset="utf-8">
     </head>
     <body>
-        <h1>お知らせを作成</h1>
+        <!-- <x-sharing.menu></x-sharing.menu> -->
         @auth
             <!-- ここに入力フォームを表示させる -->
             <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
