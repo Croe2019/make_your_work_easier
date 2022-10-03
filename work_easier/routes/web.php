@@ -11,8 +11,11 @@ use App\Http\Controllers\UserSetting\Edit\EditController;
 use App\Http\Controllers\Notice\Update\IndexController;
 use App\Http\Controllers\Notice\Update\PutController;
 use App\Http\Controllers\Notice\DeleteController;
-
 use App\Http\Controllers\MultImageSelectController;
+use App\Http\Controllers\DocumentCreating\DocumentCreatingController;
+use App\Http\Controllers\DocumentListController;
+use App\Http\Controllers\DocumentDetailController;
+use App\Http\Controllers\PDFFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +51,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/notice/update/{notice_id}', [PutController::class, 'Update'])->name('Notice.Update');
     // 削除処理ルーティング
     Route::delete('/notice/delete/{notice_id}', [DeleteController::class, 'Delete'])->name('Notice.delete');
+
+    // 資料保存ルーティング
+    Route::get('/document/creating', [DocumentCreatingController::class, 'DocumentCreatingView'])->name('DocumentCreating.document_creating');
+    Route::post('/document/creating', [DocumentCreatingController::class, 'DocumentStore'])->name('document_store');
+
+    // 資料一覧画面
+    Route::get('/document/list', [DocumentListController::class, 'DocumentList'])->name('DocumentList.document_list');
+    // 資料詳細ページ
+    Route::get('/document/detail/{document_id}', [DocumentDetailController::class, 'DocumentDetail'])->name('DocumentDetail.document_detail')->where('document_id', '[0-9]+');
+    // PDFファイル表示表ページ
+    Route::get('/pdf/{document_id}', [PDFFileController::class, 'DocumentPDF'])->name('DocumentDetail.PDF');
 });
 
 

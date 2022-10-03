@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Notice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Notice;
-use App\Services\NoticeService;
 use App\Services\DeleteNoticeService;
 
 class DeleteController extends Controller

@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Notice Edit</title>
-        <x-notice-update.share></x-notice-update.share>
+        <x-sharing.bootstrap></x-sharing.bootstrap>
     </head>
     <body>
-        <x-notice-update.menu></x-notice-update.menu>
+        <x-sharing.menu></x-sharing.menu>
         <a href="{{ route('Chat.chat') }}">戻る</a>
         <p>投稿フォーム</p>
         @if(session('feedback.success'))

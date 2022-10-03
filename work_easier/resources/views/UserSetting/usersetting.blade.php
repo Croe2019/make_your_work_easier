@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <x-usersetting.share></x-usersetting.share>
+        <x-sharing.bootstrap></x-sharing.bootstrap>
         <title>UserSetting</title>
     </head>
     <body>

@@ -2,11 +2,11 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <x-chat.share></x-chat.share>
+        <x-sharing.bootstrap></x-sharing.bootstrap>
         <title>Notice</title>
     </head>
     <body>
-        <x-chat.sidebar></x-chat.sidebar>
+    <x-sharing.menu></x-sharing.menu>
         <!-- ここにお知らせ一覧を表示させる -->
         <hr>
         <div class="mt-5">
