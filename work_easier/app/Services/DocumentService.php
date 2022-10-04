@@ -21,9 +21,10 @@ class DocumentService
         DB::transaction(function () use ($user_id, $document_name, $document_file, $tags){
             $document = new Document();
             $document->user_id = $user_id;
-            $document->document_name = $document_name;
-            Storage::putFile('public/documents', $document_file);
-            $document->document_path = $document_file->hashName();
+            $document_name = $document_file->getClientOriginalName();
+            $document->document_name = $document_name; 
+            $document_path = $document_file->store('documents', 'public');
+            $document->document_path = $document_path;
             $document->save();
              // DBに登録する処理
              foreach($tags as $tag)

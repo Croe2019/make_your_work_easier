@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Document;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Storage;
+
 
 class CreateRequest extends FormRequest
 {
@@ -52,7 +54,7 @@ class CreateRequest extends FormRequest
         return $this->user()->id;
     }
 
-    public function document(): string
+    public function DocumentName(): string
     {
         return $this->input('document_name');
     }
@@ -60,6 +62,11 @@ class CreateRequest extends FormRequest
     public function DocumentFile()
     {
         return $this->file('images');
+    }
+
+    public function DocumentPath()
+    {
+        return Storage::putFile('/documents', $this->file('images') ,'public');
     }
 
     public function tags(): array

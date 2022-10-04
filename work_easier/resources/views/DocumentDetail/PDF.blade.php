@@ -8,7 +8,7 @@
     <body>
         <div class="mt-5">
             @auth
-                <iframe type="application/pdf" id="document_file" alt="{{ $document->document_path }}" class="object-fit w-full" src="{{ asset('storage/documents/' . $document->document_path) }}"></iframe>
+                <iframe type="application/pdf" id="document_file" alt="{{ $document->document_path }}" class="object-fit w-full" src="{{ Storage::url($document->document_path) }}"></iframe>
             @endauth
         </div>
     </body>
