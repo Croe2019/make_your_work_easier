@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{{ asset('/assets/css/tag.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/pdf_url.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/image.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/download_button.css') }}">
         <x-sharing.bootstrap></x-sharing.bootstrap>
     </head>
     <body>
@@ -21,7 +22,7 @@
                         <h3 class="mt-5">
                             <i class="far fa-lightbulb"></i>
                                 <p>
-                                    <img id="document_file" alt="{{ $document->document_path }}" class="object-fit w-full" src="{{ asset('storage/documents/' . $document->document_path) }}" width="50%">
+                                    <img id="document_file" alt="{{ $document->document_name }}" class="object-fit w-full" src="{{ Storage::url($document->document_path) }}" width="50%">
                                 </p>
                         </h3>
                     </a>
@@ -29,7 +30,7 @@
                     <h4 class="mt-5">
                         <i class="image-lightbulb"></i>
                         <p>
-                            <img id="document_file" alt="{{ $document->document_path }}" class="object-fit w-full" src="{{ asset('storage/documents/' . $document->document_path) }}" width="25%">
+                            <img id="document_file" alt="{{ $document->document_name }}" class="object-fit w-full" src="{{ Storage::url($document->document_path) }}" width="25%">
                         </p>
                     </h4>
                 @endif
