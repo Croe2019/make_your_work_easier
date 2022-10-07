@@ -30,11 +30,9 @@
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="{{ route('DocumentCreating.document_creating') }}">資料保存</a></li>
               <li><a class="dropdown-item" href="{{ route('DocumentList.document_list') }}">資料一覧</a></li>
-              <li><a class="dropdown-item" href="#">資料検索</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">その他</a></li>
             </ul>
           </li>
         </ul>
