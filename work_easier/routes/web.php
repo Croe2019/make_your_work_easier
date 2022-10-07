@@ -17,7 +17,7 @@ use App\Http\Controllers\DocumentListController;
 use App\Http\Controllers\DocumentDetailController;
 use App\Http\Controllers\PDFFileController;
 use App\Http\Controllers\DocumentSearchController;
-use App\Models\Document;
+use App\Http\Controllers\WorkingStateListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +66,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/pdf/{document_id}', [PDFFileController::class, 'DocumentPDF'])->name('DocumentDetail.PDF');
     // 資料検索
     Route::get('/document/search', [DocumentSearchController::class, 'DocumentSearch'])->name('DocumentSearch.document_search_result');
+    // 勤務状態一覧
+    Route::get('/state/list', [WorkingStateListController::class, 'StaffStateList'])->name('WorkingStateList.working_state_list');
 });
 
 

@@ -5,11 +5,11 @@
         <x-sharing.bootstrap></x-sharing.bootstrap>
     </head>
     <body>
-        <h1>ユーザー設定編集</h1>
+        <x-sharing.menu></x-sharing.menu>
         @auth
             <form action="{{ route('update', $user_id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
+                <div class="mt-5">
                     <p>
                     <img id="preview" src="{{ Storage::url($user->user_profile_image) }}" style="max-width:200px;">
                     </p>
@@ -29,7 +29,6 @@
                     <input type="text" class="form-control" id="exampleFormControlInput1" name="user_name" value="{{ $user->user_name }}">
                     <!-- 勤務状態の変更をするドロップダウン -->
                     <select class="form-select" aria-label="Default select example" name="user_status">
-                        <option selected>{{ $user->user_status }}</option>
                         <option value="1">出勤</option>
                         <option value="2">退勤</option>
                         <option value="3">休憩</option>
@@ -38,6 +37,9 @@
                     <x-usersettingedit.sendbutton></x-usersettingedit.sendbutton>
                 </div>
             </form>
+            @if(session('feedback.success'))
+                 <p style="color: green">{{ session('feedback.success') }}</p>
+            @endif
         @endauth
     </body>
 </html>

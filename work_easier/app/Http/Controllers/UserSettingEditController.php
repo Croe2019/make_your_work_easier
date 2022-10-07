@@ -56,6 +56,6 @@ class UserSettingEditController extends Controller
 
         //dd($user_edit_setting);
         // リダイレクト
-        return redirect()->route('UserSettingEdit.edit', ['user_id' => $user_id]);
+        return redirect()->route('UserSettingEdit.edit', ['user_id' => $user_id])->with('feedback.success', "ユーザー設定を更新しました");
     }
 }

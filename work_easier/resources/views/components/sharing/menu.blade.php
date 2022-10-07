@@ -21,6 +21,9 @@
             <a class="nav-link" href="{{ route('MyPage.mypage', '$user_id') }}">マイページ</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ route('WorkingStateList.working_state_list') }}">勤務状態一覧</a>
+          </li>
+          <li class="nav-item">
             <x-chat.logout></x-chat.logout>
           </li>
           <li class="nav-item dropdown">
@@ -30,16 +33,14 @@
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="{{ route('DocumentCreating.document_creating') }}">資料保存</a></li>
               <li><a class="dropdown-item" href="{{ route('DocumentList.document_list') }}">資料一覧</a></li>
-              <li><a class="dropdown-item" href="#">資料検索</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">その他</a></li>
             </ul>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="検索" aria-label="検索">
+        <form action="{{ route('DocumentSearch.document_search_result') }}" method="get" class="d-flex" role="search">
+          <input class="form-control me-2" type="search" name="keyword" placeholder="資料を検索" aria-label="検索">
           <button class="btn btn-success flex-shrink-0" type="submit">検索</button>
         </form>
       </div>
