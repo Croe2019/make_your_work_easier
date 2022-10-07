@@ -16,6 +16,8 @@ use App\Http\Controllers\DocumentCreating\DocumentCreatingController;
 use App\Http\Controllers\DocumentListController;
 use App\Http\Controllers\DocumentDetailController;
 use App\Http\Controllers\PDFFileController;
+use App\Http\Controllers\DocumentSearchController;
+use App\Models\Document;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +64,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/document/detail/{document_id}', [DocumentDetailController::class, 'DocumentDetail'])->name('DocumentDetail.document_detail')->where('document_id', '[0-9]+');
     // PDFファイル表示表ページ
     Route::get('/pdf/{document_id}', [PDFFileController::class, 'DocumentPDF'])->name('DocumentDetail.PDF');
+    // 資料検索
+    Route::get('/document/search', [DocumentSearchController::class, 'DocumentSearch'])->name('DocumentSearch.document_search_result');
 });
 
 

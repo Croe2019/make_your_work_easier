@@ -6,7 +6,7 @@
         <title>DocumentList</title>
     </head>
     <body>
-        <x-sharing.menu></x-sharing.menu>
+        <x-document_list.menu></x-document_list.menu>
         <div class="mt-5">
             <table class="table table-hover">
                 <thead class="table">
