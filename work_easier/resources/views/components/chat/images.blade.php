@@ -8,7 +8,6 @@
         @foreach($images as $image)
         <div class="w-1/6 px-2 mt-5">
             <div class="bg-gray-400">
-                <p>{{ $image->id }}</p>
                 <a @click="$dispatch('img-modal', {  imgModalSrc: '{{ asset('storage/images/' . $image->image_name)  }}' })" class="cursor-pointer">
                     <img alt="{{ $image->image_name }}" class="object-fit w-full" src="{{ asset('storage/images/' . $image->image_name) }}" width="25%">
                 </a>

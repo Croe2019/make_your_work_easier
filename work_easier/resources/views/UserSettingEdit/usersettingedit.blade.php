@@ -10,11 +10,15 @@
             <form action="{{ route('update', $user_id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mt-5">
-                    <p>
-                    <img id="preview" src="{{ Storage::url($user->user_profile_image) }}" style="max-width:200px;">
-                    </p>
+                    @if($user->user_image == null)
+                        <p>No Image</p>
+                    @else
+                        <p>
+                        <img id="preview" src="{{ Storage::url($user->user_image) }}" style="max-width:200px;">
+                        </p>
+                    @endif
                     <label for="formFileMultiple" class="form-label">プロフィール画像を選択</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="user_profile_image" multiple accept='image/*' onchange="previewImage(this);">
+                    <input class="form-control" type="file" id="formFileMultiple" name="user_image" multiple accept='user_image/*' onchange="previewImage(this);">
                     <script>
                         function previewImage(obj)
                         {
@@ -26,7 +30,7 @@
                         }
                     </script>
                     <!-- ユーザー名を編集するフォーム -->
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name="user_name" value="{{ $user->user_name }}">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{ $user->name }}">
                     <!-- 勤務状態の変更をするドロップダウン -->
                     <select class="form-select" aria-label="Default select example" name="user_status">
                         <option value="1">出勤</option>

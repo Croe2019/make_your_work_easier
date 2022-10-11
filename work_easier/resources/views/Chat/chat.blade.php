@@ -12,7 +12,9 @@
         <div class="mt-5">
             @foreach($notices as $notice)
                 <details>
-                    <summary>{{ $notice->content }} by {{ $notice->user->name }}</summary>
+                    <summary>
+                        <img id="preview" src="{{ Storage::url($notice->user->user_image) }}" style="max-width:200px;"> {{ $notice->content }} by {{ $notice->user->name }}
+                    </summary>
                     <x-chat.images :images="$notice->images"></x-chat.images>
                     <div>
                         <a href="{{ route('NoticeUpdate.update', ['notice_id' => $notice->id]) }}">編集</a>

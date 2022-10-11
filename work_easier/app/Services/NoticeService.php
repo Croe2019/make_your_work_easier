@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Notice;
+use App\Models\UserSetting;
 use Carbon\Carbon;
 use App\Models\Image;
 use Illuminate\Support\Facades\DB;
@@ -13,6 +14,11 @@ class NoticeService
     public function getNotices()
     {
         return Notice::with('images')->orderBy('created_at', 'DESC')->get();
+    }
+
+    public function getUser($user_id)
+    {
+        return UserSetting::where('user_id', $user_id)->first();
     }
 
     // TODO 画像のIDを取得するところから再開

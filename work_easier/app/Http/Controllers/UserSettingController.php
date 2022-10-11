@@ -13,7 +13,6 @@ class UserSettingController extends Controller
     public function UserSettingView($user_id)
     {
         $user_id = Auth::id();
-        //$user = DB::table('users')->find($user_id);
         return view('UserSetting.usersetting', ['user_id' => $user_id]);
     }
 

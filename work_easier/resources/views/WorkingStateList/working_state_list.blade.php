@@ -20,12 +20,12 @@
                 <tbody>
                     @foreach($users as $user)
                         <tr>
-                            @if($user->user_profile_image != null)
-                                <td class="text-center"><img id="preview" src="{{ Storage::url($user->user_profile_image) }}" style="max-width:200px;"></td>
+                            @if($user->user_image != null)
+                                <td class="text-center"><img id="preview" src="{{ Storage::url($user->user_image) }}" style="max-width:200px;"></td>
                             @else
                             <td class="text-center"><p>No Image</p></td>
                             @endif
-                            <td class="text-center">{{ $user->user_name }}</a></td>
+                            <td class="text-center">{{ $user->name }}</a></td>
                             @if($user->user_status == 1)
                                 <td class="text-center">出勤</a></td>
                             @elseif($user->user_status == 2)
