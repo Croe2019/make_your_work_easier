@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserSetting\UserSettingRequest;
 use App\Models\UserSetting;
 
+// 現在使用していない
 class UserSettingController extends Controller
 {
     public function UserSettingView($user_id)

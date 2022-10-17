@@ -20,6 +20,7 @@ class UserSettingEditController extends Controller
         return view('UserSettingEdit.usersettingedit', ['user_id' => $user_id, 'user' => $user]);
     }
 
+    // TODO ここから再開
     public function Update($user_id, EditRequest $request)
     {
         // ログインしているユーザーのidを取得
