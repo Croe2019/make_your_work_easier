@@ -16,8 +16,10 @@ class ChatController extends Controller
     {
         $notice_service = new NoticeService();
         $notices = $notice_service->getNotices();
+        // ログイン中のユーザーidを取得
+        $user_id = Auth::id();
         
         // お知らせを投稿したユーザーidを取得
-        return view('Chat.chat', ['notices' => $notices]);
+        return view('Chat.chat', ['notices' => $notices, 'user_id' => $user_id]);
     }
 }

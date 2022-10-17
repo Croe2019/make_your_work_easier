@@ -18,7 +18,7 @@
             <a class="nav-link" href="{{ route('NoticeCreate.createview') }}">お知らせ投稿</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('MyPage.mypage', '$user_id') }}">マイページ</a>
+            <a class="nav-link" href="{{ route('UserSettingEdit.edit', '$user_id') }}">マイページ</a>
           </li>
           <li class="nav-item">
             <x-chat.logout></x-chat.logout>

@@ -15,6 +15,7 @@
                     <th scope="col" class="text-center">ユーザー画像</th>
                     <th scope="col" class="text-center">名前</th>
                     <th scope="col" class="text-center">勤務状態</th>
+                    <th scope="col" class="text-center">ユーザー設定</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,9 @@
                                 <td class="text-center">休憩</a></td>
                             @elseif($user->user_status == 4)
                                 <td class="text-center">休日</a></td>
+                            @endif
+                            @if($user->id == $user_id)
+                                <td class="text-center"><a class="nav-link" href="{{ route('UserSettingEdit.edit', '$user_id') }}">マイページ</a></td>
                             @endif
                         </tr>
                     @endforeach

@@ -59,6 +59,14 @@ class CreateRequest extends FormRequest
 
     public function images() : array
     {
-        return $this->file('images', []);
+        if($this->file('images1') != null && $this->file('images2') == null && $this->file('images3') == null && $this->file('images4') == null){
+            return $this->file('images', ['images1' => $this->file('images1')]);
+        }else if($this->file('images1') != null && $this->file('images2') != null && $this->file('images3') == null && $this->file('images4') == null){
+            return $this->file('images', ['images1' => $this->file('images1'), 'images2' => $this->file('images2')]);
+        }else if($this->file('images1') != null && $this->file('images2') != null && $this->file('images3') != null && $this->file('images4') == null){
+            return $this->file('images', ['images1' => $this->file('images1'), 'images2' => $this->file('images2'), 'images3' => $this->file('images3')]);
+        }else if($this->file('images1') != null && $this->file('images2') != null && $this->file('images3') != null && $this->file('images4') != null){
+            return $this->file('images', ['images1' => $this->file('images1'), 'images2' => $this->file('images2'), 'images3' => $this->file('images3'), 'images4' => $this->file('images4')]);
+        }
     }
 }

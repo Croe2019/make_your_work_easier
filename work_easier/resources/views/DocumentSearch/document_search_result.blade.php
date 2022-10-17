@@ -6,7 +6,7 @@
         <title>DocumentSearchResult</title>
     </head>
     <body>
-        <x-document_list.menu></x-document_list.menu>
+        <x-sharing.menu></x-sharing.menu>
         <div class="mt-5">
             @if($documents->count())
                 <table class="table table-hover">

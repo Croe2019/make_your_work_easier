@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Darkオフキャンバス・ナビバー</a>
+    <a class="navbar-brand" href="{{ route('Chat.chat') }}">Darkオフキャンバス・ナビバー</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,7 +18,7 @@
             <a class="nav-link" href="{{ route('NoticeCreate.createview') }}">お知らせ投稿</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('MyPage.mypage', '$user_id') }}">マイページ</a>
+            <a class="nav-link" href="{{ route('UserSettingEdit.edit', '$user_id') }}">マイページ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('WorkingStateList.working_state_list') }}">勤務状態一覧</a>
