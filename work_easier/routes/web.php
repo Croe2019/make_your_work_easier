@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/noticecreate', [NoticeCreateController::class, 'NoticeCreateView'])->name('NoticeCreate.createview');
     Route::post('/notice/create', [NoticeCreateController::class, 'NoticeStore'])->name('store');
     // マイページ
-    Route::get('/mypage/{user_id}', [MyPageController::class, 'UserMyPageView'])->name('MyPage.mypage');
+    //Route::get('/mypage/{user_id}', [MyPageController::class, 'UserMyPageView'])->name('MyPage.mypage');
     // ユーザー情報編集画面
     Route::get('/usersettingedit/{user_id}', [UserSettingEditController::class, 'EditView'])->name('UserSettingEdit.edit');
     Route::post('/usersettingedit/{user_id}', [UserSettingEditController::class, 'Update'])->name('update');

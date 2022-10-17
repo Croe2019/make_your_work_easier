@@ -1,0 +1,24 @@
+img {
+	width:200px;
+	height:200px;
+	object-fit:cover;
+	border-radius:50%;
+	object-position:-20px 0px;
+    border: solid 1px #777777;
+}
+
+#user_setting_form{
+	padding-top: 30px;
+}
+
+#profile_image{
+	text-align: center;
+}
+
+#user_status{
+	padding-top: 20px;
+}
+
+#save{
+	padding-top: 10px;
+}

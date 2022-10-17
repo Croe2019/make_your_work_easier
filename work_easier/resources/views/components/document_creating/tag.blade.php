@@ -14,11 +14,11 @@
 @enderror
 <!--ボタンをクリックしたらJavascriptファイル内の関数addForm()を実行する-->
 <div class="bt_addForm">
-  <input type="button" value="追加" onclick="addForm()">
+  <input type="button" class="btn btn-primary" value="追加" onclick="addForm()">
 </div>
 <!--「削除」ボタンをクリックしたらJavascriptファイル内の関数deleteForm()を実行する-->
 <div class="bt_deleteForm">
-  <input type="button" value="削除" onclick="deleteForm()">
+  <input type="button" class="btn btn-danger" value="削除" onclick="deleteForm()">
 </div>  
 
 <script>
