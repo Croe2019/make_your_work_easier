@@ -16,3 +16,12 @@
 .flex-item {
   flex-basis: 100%;
 }
+
+img{
+  width:100px;
+	height:100px;
+	object-fit:cover;
+	border-radius:50%;
+	object-position:-20px 0px;
+  border: solid 1px #777777;
+}

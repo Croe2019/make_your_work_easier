@@ -16,7 +16,7 @@
             @foreach($notices as $notice)
                 <div class="user_data_flex">
                     <figure class="profile_image">
-                        <img class="profile_image" id="preview" src="{{ Storage::url($notice->user->user_image) }}" style="max-width:200px;">
+                        <img class="profile_image" id="preview" src="{{ Storage::url($notice->user->user_image) }}">
                     </figure>
                     <p class="user_data">{{ $notice->user->name }} {{ $notice->created_at->format('m/d H:i') }}</p>
 

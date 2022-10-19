@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\UserSetting;
 use App\Http\Requests\UserSetting\Edit\EditRequest;
 use App\Models\User;
+use App\Services\EditUserSetting;
 
 class UserSettingEditController extends Controller
 {
@@ -21,43 +22,11 @@ class UserSettingEditController extends Controller
     }
 
     // TODO ここから再開
-    public function Update($user_id, EditRequest $request)
+    public function Update($user_id, EditRequest $request, EditUserSetting $service)
     {
         // ログインしているユーザーのidを取得
-        // ここはリファクタリングでモデルクラスに処理を移してControllerでは呼び出すだけにする
         $user_id  = Auth::id();
-        $user = User::where('id', $user_id)->first();
-
-        $user_name = $request->input('name');
-        $user_status_number = $request->input('user_status');
-        $user_image = $request->file('user_image');
-
-        if(isset($user_image)){
-            $path = $user_image->store('profile_image', 'public');
-            if($path){
-                User::where('id', $user_id)->update([
-                    'name' => $user_name,
-                    'email' => $user->email,
-                    'password' => $user->password,
-                    'user_image' => $path,
-                    'user_status' => $user_status_number,
-                    'created_at' => now(),
-                    'updated_at' => now()
-                ]);
-                
-            }
-        }else{
-            // 画像を変更しないままユーザー名、勤務状態を変更した時の送信処理
-            User::where('id', $user_id)->update([
-                'name' => $user_name,
-                'email' => $user->email,
-                'password' => $user->password,
-                'user_image' => $user->user_image,
-                'user_status' => $user_status_number,
-                'created_at' => now(),
-                'updated_at' => now()
-            ]);
-        }
+        $service->EditSaveUserSetting($user_id, $request->UserName(), $request->UserStatus(), $request->UserImage());
 
         // リダイレクト
         return redirect()->route('UserSettingEdit.edit', ['user_id' => $user_id])->with('feedback.success', "ユーザー設定を更新しました");

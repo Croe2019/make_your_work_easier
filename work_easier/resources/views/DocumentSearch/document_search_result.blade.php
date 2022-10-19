@@ -26,7 +26,7 @@
                     </tbody>
                 </table>
             @else
-                <p>見つかりませんでした</p>
+                <x-not_search_document_result.not_search_document_result></x-not_search_document_result.not_search_document_result>
             @endif
             <div class="d-flex justify-content-center">
                 {{ $documents->links('pagination::bootstrap-4') }}

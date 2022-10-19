@@ -9,6 +9,7 @@ use App\Models\Notice;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Services\EditNoticeService;
+use App\Models\NoticeImage;
 
 class PutController extends Controller
 {
@@ -16,7 +17,6 @@ class PutController extends Controller
     public function Update($notice_id, UpdateRequest $request, EditNoticeService $edit_notice_service)
     {
         $edit_notice_service->editSaveNotice($notice_id, $request->notice(), $request->images());
-
         return redirect()->route('NoticeUpdate.update', ['notice_id' => $notice_id])
         ->with('feedback.success', "お知らせを編集しました");
     }

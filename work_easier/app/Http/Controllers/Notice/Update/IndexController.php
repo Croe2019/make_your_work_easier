@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Notice\Update;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Notice;
+use App\Models\NoticeImage;
 use App\Services\EditNoticeService;
 
 class IndexController extends Controller
