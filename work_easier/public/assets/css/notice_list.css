@@ -1,10 +1,10 @@
 img.profile_image{
-    width:200px;
+  width:200px;
 	height:200px;
 	object-fit:cover;
 	border-radius:50%;
-	object-position:-20px 0px;
-    border: solid 1px #777777;
+	object-position:-30px 0px;
+  border: solid 1px #777777;
 }
 
 p.user_data{

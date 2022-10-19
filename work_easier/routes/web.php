@@ -18,6 +18,7 @@ use App\Http\Controllers\DocumentDetailController;
 use App\Http\Controllers\PDFFileController;
 use App\Http\Controllers\DocumentSearchController;
 use App\Http\Controllers\WorkingStateListController;
+use App\Http\Controllers\NotSearchResultController;
 
 /*
 |--------------------------------------------------------------------------

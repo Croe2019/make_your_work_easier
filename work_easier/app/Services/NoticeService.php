@@ -21,16 +21,14 @@ class NoticeService
         return UserSetting::where('user_id', $user_id)->first();
     }
 
-    // TODO 画像のIDを取得するところから再開
-
-    public function saveNotice(int $user_id, string $content, array $images)
+    public function saveNotice(int $user_id, string $content, array $images = null)
     {
         DB::transaction(function () use ($user_id, $content, $images){
             $notice = new Notice();
             $notice->user_id = $user_id;
             $notice->content = $content;
             $notice->save();
-            foreach($images as $image)
+            foreach((array)$images as $image)
             {
                 Storage::putFile('public/images', $image);
                 $imageModel = new Image();

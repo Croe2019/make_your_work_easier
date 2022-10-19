@@ -46,4 +46,24 @@ class EditRequest extends FormRequest
     {
         return $this->storeAs($path, $this->hashName(), $this->parseOptions($options));
     }
+
+    public function UserID($user_id)
+    {
+        return $user_id;
+    }
+
+    public function UserName(): string
+    {
+        return $this->input('name');
+    }
+
+    public function UserStatus(): int
+    {
+        return $this->input('user_status');
+    }
+
+    public function UserImage()
+    {
+        return $this->file('user_image');
+    }
 }
