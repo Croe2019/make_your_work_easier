@@ -29,7 +29,6 @@
                 <div class="col-md-5 p-lg-5 mx-auto my-5">
                 <h1 class="display-4 fw-normal">業務に関する連絡に!</h1>
                 <p class="lead fw-normal">誰でも簡単に連絡が可能です！</p>
-                <a class="btn btn-outline-secondary" href="#">Coming soon</a>
                 </div>
                 <div class="product-device shadow-sm d-none d-md-block"></div>
                 <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
@@ -39,7 +38,6 @@
                 <div class="col-md-5 p-lg-5 mx-auto my-5">
                 <h1 class="display-4 fw-normal">スマホ・PCで勤怠管理が可能！</h1>
                 <p class="lead fw-normal">わずか10秒あれば、勤務状態を変更できます！</p>
-                <a class="btn btn-outline-secondary" href="#">Coming soon</a>
                 </div>
                 <div class="product-device shadow-sm d-none d-md-block"></div>
                 <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
@@ -49,7 +47,6 @@
                 <div class="col-md-5 p-lg-5 mx-auto my-5">
                 <h1 class="display-4 fw-normal">無くしやすい資料はデータにして保存！</h1>
                 <p class="lead fw-normal">資料の保存、検索も簡単！</p>
-                <a class="btn btn-outline-secondary" href="#">Coming soon</a>
                 </div>
                 <div class="product-device shadow-sm d-none d-md-block"></div>
                 <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
